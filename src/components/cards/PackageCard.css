@@ -1,0 +1,194 @@
+/* ===== COLORES POR TEMA ===== */
+.pkg--kiara {
+  --pk-accent: var(--pink-500);
+  --pk-accent-dark: var(--pink-600);
+  --pk-soft: var(--pink-100);
+  --pk-stripe-a: #f9b4d6;
+  --pk-stripe-b: #ffffff;
+  --pk-stripe-c: #a8e6d9;
+  --pk-grad: linear-gradient(160deg, #ffe3f1 0%, #fbc7e2 100%);
+  --pk-btn: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+}
+
+.pkg--kpop {
+  --pk-accent: #8b4ddb;
+  --pk-accent-dark: #6a2fbf;
+  --pk-soft: #f1e8ff;
+  --pk-stripe-a: #c9a8f5;
+  --pk-stripe-b: #ffffff;
+  --pk-stripe-c: #f6b3dc;
+  --pk-grad: linear-gradient(160deg, #f3ebff 0%, #dcc6ff 100%);
+  --pk-btn: linear-gradient(135deg, #b07cf0, #8b4ddb);
+}
+
+.pkg--navidad {
+  --pk-accent: #c62828;
+  --pk-accent-dark: #a01d1d;
+  --pk-soft: #fbeaea;
+  --pk-stripe-a: #d32f2f;
+  --pk-stripe-b: #ffffff;
+  --pk-stripe-c: #2e7d4f;
+  --pk-grad: linear-gradient(160deg, #fff8ec 0%, #fde0d8 100%);
+  --pk-btn: linear-gradient(135deg, #e53935, #b71c1c);
+}
+
+/* ===== TARJETA ===== */
+.pkg-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 14px 36px rgba(156, 11, 86, 0.14);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.pkg-card:hover {
+  box-shadow: 0 22px 46px rgba(156, 11, 86, 0.22);
+}
+
+/* Cabecera con toldo de rayas, como los flyers */
+.pkg-head {
+  position: relative;
+  padding: 3.4rem 1.4rem 1.3rem;
+  text-align: center;
+  background: var(--pk-grad);
+}
+
+.pkg-awning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pk-stripe-a) 0 28px,
+    var(--pk-stripe-b) 28px 56px,
+    var(--pk-stripe-c) 56px 84px,
+    var(--pk-stripe-b) 84px 112px
+  );
+  /* borde ondulado (festón) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% 20px no-repeat,
+    radial-gradient(circle 14px at 14px 20px, #000 98%, transparent) 0 0 / 28px 34px repeat-x;
+  mask:
+    linear-gradient(#000 0 0) top / 100% 20px no-repeat,
+    radial-gradient(circle 14px at 14px 20px, #000 98%, transparent) 0 0 / 28px 34px repeat-x;
+}
+
+.pkg-theme {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pk-accent-dark);
+}
+
+.pkg-name {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(2rem, 7vw, 2.3rem);
+  line-height: 1.1;
+  color: var(--pk-accent);
+  text-shadow: 0 2px 0 var(--white);
+}
+
+.pkg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #7a5200;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 4px 10px rgba(201, 154, 46, 0.35);
+}
+
+/* ===== CUERPO ===== */
+.pkg-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.5rem 1.5rem;
+}
+
+.pkg-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.pkg-price small {
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  color: var(--pk-accent);
+}
+
+.pkg-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 1.2rem 0 0.8rem;
+}
+
+.pkg-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.pkg-heart {
+  flex-shrink: 0;
+  margin-top: 0.2em;
+  color: var(--pk-accent);
+}
+
+.pkg-more {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 1.2rem;
+}
+
+.pkg-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--pk-btn);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.pkg-btn:hover {
+  filter: brightness(1.08);
+}
+
+.pkg-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}

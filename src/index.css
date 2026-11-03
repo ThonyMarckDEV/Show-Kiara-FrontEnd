@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Rosados */
+  --pink-50: #fff5fa;
+  --pink-100: #fde4f1;
+  --pink-200: #fbc7e2;
+  --pink-300: #f79acb;
+  --pink-400: #f06aae;
+  --pink-500: #e91e8c;
+  --pink-600: #c8106f;
+  --pink-700: #9c0b56;
+
+  /* Morado del footer */
+  --purple-800: #7a1458;
+  --purple-900: #5e0f45;
+
+  /* Dorados */
+  --gold: #f5c451;
+  --gold-light: #ffe08a;
+  --gold-dark: #c99a2e;
+
+  /* Texto */
+  --text: #3a2233;
+  --text-soft: #6b4a5e;
+  --white: #ffffff;
+
+  /* Fuentes */
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Formas */
+  --radius-sm: 12px;
+  --radius: 24px;
+  --radius-full: 999px;
+  --shadow: 0 10px 30px rgba(233, 30, 140, 0.15);
+  --shadow-strong: 0 15px 40px rgba(233, 30, 140, 0.3);
+
+  /* Alto del navbar fijo */
+  --nav-h: 96px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 84px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== BARRA DE SCROLL PERSONALIZADA ===== */
+/* Chrome, Edge, Safari, Opera */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pink-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d59eaf, #b97a8e);
+  border-radius: var(--radius-full);
+  /* borde del color del fondo = cápsula flotante más delgada */
+  border: 3px solid var(--pink-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #b97a8e, #8a5165);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--pink-50);
+}
+
+/* Firefox (solo permite colores, sin degradado ni redondeo) */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #c98c9f var(--pink-50);
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--pink-50);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

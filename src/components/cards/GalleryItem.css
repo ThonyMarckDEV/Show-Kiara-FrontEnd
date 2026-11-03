@@ -1,0 +1,39 @@
+/* Polaroid */
+.gallery-item {
+  flex-shrink: 0;
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--white);
+  box-shadow: 0 14px 30px rgba(156, 11, 86, 0.16);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 0 20px 40px rgba(156, 11, 86, 0.25);
+  z-index: 2;
+}
+
+.gallery-item-btn {
+  display: block;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--pink-100);
+  cursor: zoom-in;
+}
+
+.gallery-item-btn img {
+  display: block;
+  height: var(--photo-h, 260px);
+  width: auto;
+  max-width: none;
+  user-select: none;
+}
+
+.gallery-item-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}

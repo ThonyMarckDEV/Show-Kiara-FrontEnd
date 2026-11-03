@@ -1,0 +1,83 @@
+.balloons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22%;
+  pointer-events: none;
+}
+
+.balloons--left {
+  left: 0;
+}
+
+.balloons--right {
+  right: 0;
+}
+
+.balloon {
+  position: absolute;
+  width: calc(var(--s) * 1vmax);
+  aspect-ratio: 0.85;
+  border-radius: 50% 50% 48% 48% / 56% 56% 44% 44%;
+  background: radial-gradient(
+    circle at 32% 28%,
+    var(--b-hi) 0 7%,
+    var(--b-base) 45%,
+    var(--b-dark) 100%
+  );
+  box-shadow: inset -6px -10px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* nudo */
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid var(--b-dark);
+}
+
+.balloon--pink {
+  --b-hi: #ffd6ea;
+  --b-base: #f37fba;
+  --b-dark: #d0287f;
+}
+
+.balloon--light {
+  --b-hi: #ffffff;
+  --b-base: #fbcde4;
+  --b-dark: #f08fbf;
+}
+
+.balloon--white {
+  --b-hi: #ffffff;
+  --b-base: #fff4f9;
+  --b-dark: #ecc3d6;
+}
+
+.balloon--gold {
+  --b-hi: #fff6d1;
+  --b-base: #f5c451;
+  --b-dark: #b8861c;
+}
+
+.balloon--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .balloons {
+    width: 30%;
+  }
+
+  .balloon--desktop {
+    display: none;
+  }
+
+  .balloon--mobile {
+    display: block;
+  }
+}

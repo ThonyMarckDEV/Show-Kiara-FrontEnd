@@ -1,0 +1,27 @@
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  padding: 2rem 1.3rem 1.6rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--pink-100);
+  box-shadow: var(--shadow);
+}
+
+.service-item h3 {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--pink-600);
+  margin-top: 0.4rem;
+}
+
+.service-item p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-soft);
+}

@@ -1,0 +1,83 @@
+.gallery {
+  padding-bottom: clamp(4rem, 10vh, 6rem);
+  background:
+    radial-gradient(ellipse 45% 35% at 10% 30%, rgba(220, 198, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 90% 80%, rgba(251, 199, 226, 0.5), transparent 70%),
+    linear-gradient(180deg, #fff 0%, var(--pink-50) 100%);
+}
+
+.gallery-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 11vh, 6.5rem) clamp(1rem, 5vw, 3rem) 0;
+}
+
+/* ===== CINTAS INFINITAS ===== */
+.gallery-rows {
+  --photo-h: clamp(170px, 24vw, 280px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 5vh, 3rem);
+  /* bordes que se desvanecen a los lados */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.gallery-row {
+  overflow: hidden;
+  /* espacio para que la sombra y la inclinación no se corten */
+  padding-block: 1.2rem;
+}
+
+.gallery-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  width: max-content;
+  animation: gallery-scroll var(--duration, 40s) linear infinite;
+}
+
+.gallery-track.is-reverse {
+  animation-direction: reverse;
+}
+
+/* se detiene al pasar el mouse o al navegar con teclado */
+.gallery-row:hover .gallery-track,
+.gallery-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* El track tiene 2 copias + un gap extra entre ellas: -50% menos medio gap */
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - clamp(1rem, 2.5vw, 1.8rem) / 2));
+  }
+}
+
+/* Movimiento reducido: sin animación, se desliza a mano */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-row {
+    overflow-x: auto;
+  }
+
+  .gallery-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-rows {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  .gallery-rows .gallery-item {
+    padding: 6px;
+  }
+}

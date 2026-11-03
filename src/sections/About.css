@@ -1,0 +1,196 @@
+.about {
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 30%, rgba(251, 199, 226, 0.45), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 90% 85%, rgba(251, 199, 226, 0.4), transparent 70%),
+    var(--pink-50);
+}
+
+.about-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vh, 6.5rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+}
+
+/* ===== FOTO ===== */
+.about-media {
+  position: relative;
+  width: min(100%, 420px);
+  justify-self: center;
+  aspect-ratio: 1;
+}
+
+.about-photo-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.about-blob {
+  position: absolute;
+  inset: -8% -10% -6% -6%;
+  z-index: 0;
+}
+
+.about-blob-shape {
+  width: 100%;
+  height: 100%;
+  border-radius: 42% 58% 55% 45% / 50% 40% 60% 50%;
+  background: linear-gradient(150deg, var(--pink-200), var(--pink-300));
+  opacity: 0.6;
+}
+
+.about-ring {
+  position: absolute;
+  inset: -7%;
+  z-index: 1;
+}
+
+.about-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-badge {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.45rem;
+  border-radius: var(--radius-full);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pink-600);
+  white-space: nowrap;
+}
+
+.about-badge .icon-badge {
+  box-shadow: none;
+}
+
+.about-badge--top {
+  top: 6%;
+  right: -12%;
+}
+
+.about-badge--bottom {
+  bottom: 4%;
+  left: -10%;
+}
+
+.about-heart {
+  position: absolute;
+  z-index: 3;
+  right: 2%;
+  bottom: 14%;
+  filter: drop-shadow(0 4px 10px rgba(233, 30, 140, 0.35));
+}
+
+/* ===== TEXTO ===== */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.about-text h3 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.about-text h3 span {
+  font-family: var(--font-script);
+  font-size: 1.35em;
+  color: var(--pink-500);
+}
+
+.about-text p {
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+
+.about-cta {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+
+/* ===== TARJETAS ===== */
+.about-services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  margin-top: clamp(3.5rem, 9vh, 5.5rem);
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-media {
+    width: min(78%, 380px);
+  }
+
+  .about-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-text .heart-list {
+    text-align: left;
+  }
+
+  .about-cta {
+    align-self: center;
+  }
+
+  .about-services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 560px) {
+  .about-media {
+    width: 72%;
+  }
+
+  .about-badge {
+    font-size: 0.75rem;
+    padding-right: 0.8rem;
+  }
+
+  .about-badge .icon-badge {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .about-badge--top {
+    right: -22%;
+  }
+
+  .about-badge--bottom {
+    left: -20%;
+  }
+
+  .about-services {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+}

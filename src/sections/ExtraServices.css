@@ -1,0 +1,113 @@
+.extras {
+  background:
+    radial-gradient(circle, rgba(240, 106, 174, 0.12) 1.5px, transparent 1.6px) 0 0 / 26px 26px,
+    linear-gradient(180deg, var(--pink-50) 0%, #fff 100%);
+}
+
+.extras-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 11vh, 6.5rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
+}
+
+/* ===== AVISO EN 3 PASOS ===== */
+.extras-notice {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: clamp(2rem, 5vh, 3rem) 0 clamp(2.5rem, 6vh, 3.5rem);
+}
+
+.extras-notice li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--pink-100);
+  box-shadow: 0 8px 22px rgba(233, 30, 140, 0.08);
+}
+
+.extras-notice-num {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+}
+
+.extras-notice p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.extras-notice strong {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--pink-600);
+}
+
+/* ===== TARJETAS ===== */
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.2rem);
+  align-items: start;
+  perspective: 1200px;
+}
+
+/* ===== WHATSAPP ===== */
+.extras-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: clamp(2.5rem, 6vh, 3.5rem) auto 0;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-full);
+  color: #1a7f41;
+  background: #e6f9ee;
+  border: 1px solid #bdeccf;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.extras-whatsapp:hover {
+  background: #d4f5e1;
+}
+
+.extras-whatsapp:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.extras-whatsapp svg {
+  flex-shrink: 0;
+  color: #1da851;
+}
+
+/* ===== TABLET / MÓVIL ===== */
+@media (max-width: 860px) {
+  .extras-notice {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .extras-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}

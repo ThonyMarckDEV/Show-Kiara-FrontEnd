@@ -1,0 +1,240 @@
+.curtain-wrapper {
+  /* ===== COLORES DEL TELÓN (cámbialos aquí) ===== */
+  /* Rosa MATE: tonos empolvados, poco saturados y con poco contraste */
+  --velvet-shadow: #b97a8e;   /* fondo de los pliegues */
+  --velvet-dark: #c98c9f;     /* transición */
+  --velvet-mid: #d59eaf;      /* cuerpo de la tela */
+  --velvet-light: #dba8b8;    /* parte alta del pliegue (casi igual al cuerpo = sin brillo) */
+  --velvet-deep: #8a5165;     /* sombras arriba/abajo y al recogerse */
+
+  position: relative;
+  height: 400vh;
+}
+
+.curtain-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--velvet-deep);
+}
+
+/* ===== CONTENIDO QUE SE REVELA ===== */
+.curtain-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ===== LADOS DEL TELÓN ===== */
+.curtain-side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100%;
+  z-index: 3;
+  transform-origin: 50% 0;
+  pointer-events: none;
+}
+
+.curtain-side--right {
+  left: auto;
+  right: 0;
+}
+
+/* Tela de fondo detrás de los pliegues */
+.curtain-backing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--velvet-deep) 0%,
+    var(--velvet-shadow) 25%,
+    var(--velvet-shadow) 70%,
+    var(--velvet-deep) 100%
+  );
+}
+
+/* ===== PLIEGUES ===== */
+.fold {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.fold-cloth {
+  position: absolute;
+  inset: 0;
+  background:
+    /* variación de tono por pliegue, solo en el centro */
+    linear-gradient(
+      90deg,
+      transparent 12%,
+      var(--fold-tone, transparent) 50%,
+      transparent 88%
+    ),
+    /* luz vertical: sombra arriba y abajo */
+    linear-gradient(
+      to bottom,
+      rgba(138, 81, 101, 0.55) 0%,
+      rgba(138, 81, 101, 0) 22%,
+      rgba(138, 81, 101, 0) 68%,
+      rgba(138, 81, 101, 0.3) 100%
+    ),
+    /* volumen cilíndrico del pliegue */
+    linear-gradient(
+      90deg,
+      var(--velvet-shadow) 0%,
+      var(--velvet-dark) 20%,
+      var(--velvet-mid) 42%,
+      var(--velvet-light) 50%,
+      var(--velvet-mid) 58%,
+      var(--velvet-dark) 80%,
+      var(--velvet-shadow) 100%
+    );
+}
+
+/* Textura de terciopelo */
+.fold-cloth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Oscurece la tela cuando se recoge */
+.fold-shade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--velvet-deep);
+}
+
+/* Sombra en la unión central */
+.fold--edge .fold-cloth {
+  box-shadow: 4px 0 12px rgba(138, 81, 101, 0.3);
+}
+
+/* ===== LUZ DE REFLECTOR ===== */
+.curtain-light {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 60% at 50% 45%, rgba(255, 240, 245, 0.06), transparent 70%),
+    radial-gradient(ellipse 120% 60% at 50% 120%, rgba(138, 81, 101, 0.3), transparent 60%);
+}
+
+/* ===== TÍTULO ===== */
+.curtain-title {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+}
+
+.curtain-eyebrow {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(107, 20, 64, 0.9);
+  margin-bottom: 0.8rem;
+}
+
+.curtain-crown {
+  filter: drop-shadow(0 0 12px rgba(245, 196, 81, 0.7));
+  margin-bottom: -0.5rem;
+}
+
+.curtain-title h1 {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+  line-height: 1.1;
+  color: var(--gold-light);
+  text-shadow:
+    0 0 25px rgba(245, 196, 81, 0.6),
+    0 4px 0 var(--gold-dark),
+    0 12px 30px rgba(107, 20, 64, 0.9);
+}
+
+.curtain-tagline {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  color: var(--white);
+  text-shadow: 0 3px 12px rgba(107, 20, 64, 0.9);
+  margin-top: 0.3rem;
+}
+
+/* ===== INDICADOR ===== */
+.curtain-hint {
+  position: absolute;
+  bottom: 9vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(107, 20, 64, 0.9);
+  pointer-events: none;
+}
+
+.curtain-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--white);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  box-shadow: 0 2px 8px rgba(107, 20, 64, 0.5);
+}
+
+.curtain-wheel {
+  width: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: curtain-wheel 1.5s infinite;
+}
+
+@keyframes curtain-wheel {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 768px) {
+  .curtain-wrapper {
+    height: 320vh;
+  }
+}
