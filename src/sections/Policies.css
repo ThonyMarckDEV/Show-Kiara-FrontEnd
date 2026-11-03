@@ -1,0 +1,52 @@
+.policies {
+  background:
+    radial-gradient(circle, rgba(240, 106, 174, 0.12) 1.5px, transparent 1.6px) 0 0 / 26px 26px,
+    linear-gradient(180deg, #fff 0%, var(--pink-50) 100%);
+}
+
+.policies-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 11vh, 6.5rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
+}
+
+.policies-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: clamp(2rem, 5vh, 3rem);
+}
+
+/* La última queda centrada si el número es impar */
+.policies-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.5rem);
+  justify-self: center;
+  width: 100%;
+}
+
+.policies-closing {
+  max-width: 720px;
+  margin: clamp(2.5rem, 6vh, 3.5rem) auto 0;
+  text-align: center;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  line-height: 1.35;
+  color: var(--pink-600);
+}
+
+@media (max-width: 860px) {
+  .policies-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .policies-grid > :last-child:nth-child(odd) {
+    max-width: none;
+  }
+}
