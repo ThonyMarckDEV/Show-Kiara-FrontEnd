@@ -4,5 +4,6 @@ export const navLinks = [
   { label: "Paquetes", href: "#paquetes" },
   { label: "Extras", href: "#servicios-extra" },
   { label: "Galería", href: "#galeria" },
+  { label: "Políticas", href: "#politicas" },
   { label: "Contacto", href: "#contacto" },
 ];

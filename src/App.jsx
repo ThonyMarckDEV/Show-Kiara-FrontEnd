@@ -8,6 +8,7 @@ import About from "./sections/About";
 import Packages from "./sections/Packages";
 import ExtraServices from "./sections/ExtraServices";
 import Gallery from "./sections/Gallery";
+import Policies from "./sections/Policies";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Packages />
         <ExtraServices />
         <Gallery />
+        <Policies />
       </main>
       <Footer />
       <WhatsAppButton />
